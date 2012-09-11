@@ -1,0 +1,18 @@
+
+<h1><%= @this_car.carname %></h1>
+<br>
+<h3>by <%= @this_car.name %></h3>
+<br>
+<br>
+<h3>Races</h3>
+
+<% @this_car.racings.each do |racing| %>
+
+Time: <%= racing.duration %>
+<br>
+<a href="/races/<%= racing.race_id %>">View race</a>
+<br>
+<br>
+<br>
+<% end %>
+

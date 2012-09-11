@@ -1,0 +1,12 @@
+<% @racings.each do |racing| %>
+<%= racing.duration %>
+<br>
+by <%= racing.car.carname %>
+<br>
+during race: <%= racing.race.id %>
+<br>
+<% end %>
+
+
+
+

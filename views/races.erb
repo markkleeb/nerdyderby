@@ -1,0 +1,17 @@
+<% @races.each do |race| %>
+<h2><a href="/races/<%= race.id %>">Race # <%= race.id %></h2></a>
+<br>
+<% race.racings.each do |racing| %>
+<%= racing.car.carname %></br>
+<a href="/cars/<%= racing.car.rfid %>"><img src = "/<%= racing.car.rfid %>.jpg" width=100></a>
+<br>
+<h4>Time: <%= racing.duration %>
+<br>
+<br>
+<% end %>
+
+
+<% end %>
+
+
+

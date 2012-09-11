@@ -1,0 +1,13 @@
+
+<% @cars.each do |car| %>
+
+<h2><%= car.carname %></h2>
+<a href="/cars/<%= car.rfid %>"><img src="/<%= car.rfid %>.jpg" width= "300"></a> 
+<br>
+<h3>Made by <%= car.name %></h3>
+<br>
+
+<% end %>
+
+
+
