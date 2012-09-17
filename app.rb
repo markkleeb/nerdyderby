@@ -143,8 +143,16 @@ post '/newcar' do
       output
   else
     status 412
-    redirect '/addcar'
-    end
+    
+    output += <<-HTML
+    Error - Could not read car
+    <br>
+    <br>
+    <a href="/addcar">Try Again</a>
+    <br>
+    HTML
+  end
+  output
   
 end
 
