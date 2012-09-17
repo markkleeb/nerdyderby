@@ -12,7 +12,7 @@ class Car
   include DataMapper::Resource
   
   property :id, Serial, :key => true
-  property :rfid, Integer,  :min => 0, :max => 2**32   #RFID number
+  property :rfid, Text
   property :carname, String
   property :name, String
 
@@ -124,7 +124,7 @@ post '/newcar' do
   car = Car.new
   
   car.id = params[:id]
-  car.rfid = params[:rfid]
+  car.rfid = params[:rfid].to_s
   car.carname = params[:carname]
   car.name = params[:name]
   
