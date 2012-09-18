@@ -1,0 +1,17 @@
+<h2>Erase Entries</h2>
+
+
+<% @cars.each do |car| %>
+<br>
+<br>
+<a href="/erase/<%= car.rfid %>">Erase <%= car.carname %> by <%= car.name %></a> 
+<br>
+<br>
+
+<% end %>
+
+
+<a href = "/eraseall">ERASE ALL ENTRIES</a>
+
+
+

@@ -130,6 +130,24 @@ get '/eraseall' do
   
 end
 
+get '/erase/:rfid' do
+  
+  Car.first(:rfid => params[:rfid]).destroy
+  redirect '/addcar'
+  
+  
+end
+
+get '/erase' do
+  
+  
+  @page_title = "Edit Entries"
+  @cars = Car.all
+  
+  erb :erase
+  
+end
+
 post '/newcar' do
   car = Car.new
   
@@ -145,16 +163,19 @@ post '/newcar' do
     status 201
     output = ""
   
-   for p in Car.all
      output += <<-HTML
      Sucess!
      <br>
      <a href = "/cars">See all cars</a>
      <br>
-     <a href = "/eraseall">Erase everything!</a>
-      HTML
-      end
-      output
+     <br>
+    <h2><a href=  "/erase">Edit entries</a></h2>
+    <br>
+    
+     HTML
+    
+    
+    
   else
     status 412
     
