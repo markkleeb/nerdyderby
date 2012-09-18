@@ -120,6 +120,16 @@ get '/racings' do
 end
 
 
+get '/eraseall' do
+  
+  Car.all.destroy
+  Race.all.destroy
+  Racing.all.destroy
+  
+  redirect '/cars'
+  
+end
+
 post '/newcar' do
   car = Car.new
   
@@ -137,7 +147,11 @@ post '/newcar' do
   
    for p in Car.all
      output += <<-HTML
-     #{p.rfid}<br/>#{p.carname}<br/>#{p.name}<br/><br/>
+     Sucess!
+     <br>
+     <a href = "/cars">See all cars</a>
+     <br>
+     <a href = "/eraseall">Erase everything!</a>
       HTML
       end
       output
