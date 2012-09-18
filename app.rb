@@ -12,7 +12,7 @@ class Car
   include DataMapper::Resource
   
   property :id, Serial, :key => true
-  property :rfid, Text
+  property :rfid, Integer
   property :carname, String
   property :name, String
 
