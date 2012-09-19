@@ -12,7 +12,7 @@ class Car
   include DataMapper::Resource
   
   property :id, Serial, :key => true
-  property :rfid, Integer
+  property :rfid, String
   property :carname, String
   property :name, String
 
@@ -166,6 +166,9 @@ post '/newcar' do
      output += <<-HTML
      Sucess!
      <br>
+     <a href = "/addcar">Add another car</a>
+     <br>
+     <br>
      <a href = "/cars">See all cars</a>
      <br>
      <br>
@@ -179,6 +182,7 @@ post '/newcar' do
   else
     status 412
     
+    output = ""
     output += <<-HTML
     Error - Could not read car
     <br>

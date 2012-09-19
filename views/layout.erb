@@ -1,16 +1,33 @@
-<html>
-  <head>
-  <link rel=Stylesheet type="text/css" href="https://s3.amazonaws.com/kleebtronics-media/css/bootstrap.css" />
- <script src="http://code.jquery.com/jquery-latest.js"></script>
-  
+<html lang="en">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<head>
+<title>The Nerdy Derby</title>
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="stylesheet" href="style.css" type="text/css"/>
 
- <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
- 
-  <title>Nerdy Derby <%= @page_title %></title>
-  </head>
-  
-  
-  <body class="<%= @page_title %>">
+<script type="text/javascript" src="scripts/jquery-1.3.2.min.js"></script>
+<!--JS for smooth scroll-->
+<script>
+function goToByScroll(id){
+$('html,body').animate({scrollTop: $("#"+id).offset().top},'slow');
+}
+</script>
+
+</head>
+
+<body class = "<%= @page_title %>">
+	
+	<div id="container">
+		<div id="content">	
+		<a href="index.html"><img src="images/ndlogo.png" id="logo"/></a>
+	
+			<div id="menu">
+			<a class="menubutton" href="http://nerdyderby.herokuapp.com/racings">LEADERBOARD</a>
+			<a class="menubutton" href="http://nerdyderby.herokuapp.com/races">RACES</a>
+			<a class="menubutton" href="http://nerdyderby.herokuapp.com/cars">CARS</a>
+			</div>
+
+
 
 
 <%= yield %>
