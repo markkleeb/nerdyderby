@@ -1,7 +1,7 @@
 <% @races.each do |race| %>
 <h1><a href="/races/<%= race.id %>">Race # <%= race.id %></h1></a>
 <br>
-<% race.racings.each do |racing| %>
+<% race.racings.all(:order=>[:duration.asc]).each do |racing| %>
 <%= racing.car.carname %></br>
 <a href="/cars/<%= racing.car.rfid %>"><img src = "/<%= racing.car.rfid %>.jpg" width=100></a>
 <br>

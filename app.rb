@@ -47,7 +47,7 @@ def millisToTime(millis)
   millis = millis - minutes * 60000
   seconds = millis / 1000
   mils = millis % 1000
-  output = "%02d" % minutes + ":" + "%02d" % seconds + "." + mils.to_s()
+  output = "%02d" % minutes + ":" + "%02d" % seconds + "." + "%03d" %mils.to_s()
   return output
 end
 
@@ -108,7 +108,7 @@ get '/races/:id' do
   @page_title = "this_race"
   @this_race = Race.get(params[:id])
   @races = Race.all
-  @racings = Race.get(params[:id]).racings(:order=>[:duration.asc])
+  @racings = Race.get(params[:id]).racings.all(:order=>[:duration.asc])
   
   
   
