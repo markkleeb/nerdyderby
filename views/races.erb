@@ -1,5 +1,5 @@
 <% @races.each do |race| %>
-<h2><a href="/races/<%= race.id %>">Race # <%= race.id %></h2></a>
+<h1><a href="/races/<%= race.id %>">Race # <%= race.id %></h1></a>
 <br>
 <% race.racings.each do |racing| %>
 <%= racing.car.carname %></br>
