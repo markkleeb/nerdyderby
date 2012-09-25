@@ -4,9 +4,12 @@
 <%= count.to_s() + ". " %>
 </h1>
 <% count = count + 1 %>
-<%= millisToTime(racing.duration) %>
+<h2>
+<%= racing.car.carname %>
+</h2>
+by <%= racing.car.name %>
 <br>
-by <%= racing.car.carname %>
+<%= millisToTime(racing.duration) %>
 <br>
 during race: <%= racing.race.id %>
 <br>
