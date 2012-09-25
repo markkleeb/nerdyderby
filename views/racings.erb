@@ -1,5 +1,5 @@
 <% @racings.each do |racing| %>
-<%= racing.duration %>
+<%= millisToTime(racing.duration) %>
 <br>
 by <%= racing.car.carname %>
 <br>

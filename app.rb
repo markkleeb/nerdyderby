@@ -42,7 +42,14 @@ class Racing
 end
 
 
-
+def millisToTime(millis)
+  minutes = millis / 60000
+  millis = millis - minutes * 60000
+  seconds = millis / 1000
+  mils = millis % 1000
+  output = "%02d" % minutes + ":" + "%02d" % seconds + "." + mils.to_s()
+  return output
+end
 
 
 # Main route  - this is the form where we take the input

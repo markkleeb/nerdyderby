@@ -5,7 +5,7 @@
 <%= racing.car.carname %></br>
 <a href="/cars/<%= racing.car.rfid %>"><img src = "/<%= racing.car.rfid %>.jpg" width=100></a>
 <br>
-<h4>Time: <%= racing.duration %>
+<h4>Time: <%= millisToTime(racing.duration) %>
 <br>
 <br>
 <% end %>

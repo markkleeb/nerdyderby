@@ -8,7 +8,7 @@
 
 <% @this_car.racings.each do |racing| %>
 
-Time: <%= racing.duration %>
+Time: <%= millisToTime(racing.duration) %>
 <br>
 <a href="/races/<%= racing.race_id %>">View race</a>
 <br>
