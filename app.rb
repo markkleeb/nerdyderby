@@ -50,7 +50,7 @@ def millisToTime(millis)
    millis = millis - minutes * 60000
    seconds = millis / 1000
    mils = millis % 1000
-   output = "%02d" % minutes + ":" + "%02d" % seconds + "." + mils.to_s()
+   output = "%02d" % minutes + ":" + "%02d" % seconds + ".%03d" % mils
    return output
   end
  end
@@ -99,7 +99,7 @@ end
 get '/races' do
   
   @page_title = "races"
-  @races = Race.all
+  @races = Race.all(:order=>[:id.desc])
   @cars = Car.all
   @racings = Racing.all
   erb :races
