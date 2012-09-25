@@ -108,6 +108,7 @@ get '/races/:id' do
   @page_title = "this_race"
   @this_race = Race.get(params[:id])
   @races = Race.all
+  @racings = Race.get(params[:id]).racings(:order=>[:duration.asc])
   
   
   
