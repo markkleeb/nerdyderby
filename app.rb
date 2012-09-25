@@ -43,12 +43,16 @@ end
 
 
 def millisToTime(millis)
+  if millis == 9999999
+    return "DID NOT FINISH"
+  else
   minutes = millis / 60000
   millis = millis - minutes * 60000
   seconds = millis / 1000
   mils = millis % 1000
   output = "%02d" % minutes + ":" + "%02d" % seconds + "." + mils.to_s()
   return output
+  end
 end
 
 
@@ -109,19 +113,14 @@ get '/races/:id' do
   @this_race = Race.get(params[:id])
   @races = Race.all
   @racings = Race.get(params[:id]).racings(:order=>[:duration.asc])
-  
-  
-  
   erb :single_race
-
-
 end
 
 
 get '/racings' do
   
   @page_title = "Leaderboard"
-  @racings = Racing.all(:order => [ :duration.asc ])
+  @racings = Racing.all(:duration.not => 9999999, :order => [ :duration.asc ])
   
   erb :racings
   
