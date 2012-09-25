@@ -99,7 +99,7 @@ end
 get '/races' do
   
   @page_title = "races"
-  @races = Race.all
+  @races = Race.all(:order=>[:id.desc])
   @cars = Car.all
   @racings = Racing.all
   erb :races
