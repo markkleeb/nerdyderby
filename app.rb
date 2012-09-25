@@ -119,7 +119,7 @@ end
 get '/racings' do
   
   @page_title = "Leaderboard"
-  @racings = Racing.all
+  @racings = Racing.all(:order => [ :duration.asc ])
   
   erb :racings
   
