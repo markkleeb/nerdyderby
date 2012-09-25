@@ -1,12 +1,16 @@
+<% count = 1 %>
 <% @racings.each do |racing| %>
-<%= racing.duration %>
+<h1>
+<%= count.to_s() + ". " %>
+</h1>
+<% count = count + 1 %>
+<h2>
+<%= racing.car.carname %>
+</h2>
+by <%= racing.car.name %>
 <br>
-by <%= racing.car.carname %>
+<%= millisToTime(racing.duration) %>
 <br>
 during race: <%= racing.race.id %>
 <br>
 <% end %>
-
-
-
-

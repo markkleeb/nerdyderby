@@ -1,4 +1,3 @@
-
 <h1>Race #<%= @this_race.id %></h1>
 <br>
 <% @this_race.racings.each do |racing| %>
@@ -6,11 +5,7 @@
 <br>
 <h4>by: <%= racing.car.name %></h4>
 <br>
-Time: <%= racing.duration %>
+Time: <%= millisToTime(racing.duration) %>
 <br>
-
-
-
-
 <% end %>
 
