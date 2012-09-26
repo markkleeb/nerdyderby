@@ -149,7 +149,8 @@ end
 
 get '/erase/:rfid' do
   
-  Car.first(:rfid => params[:rfid]).destroy
+  Car.first(:rfid => params[:rfid])
+  Car.destroy
   redirect '/addcar'
   
   
@@ -175,7 +176,9 @@ post '/newcar' do
 
   car.event = "World Maker Faire New York 2012"
   
-  
+  if car.rfid = ""
+    redirect '/addcar'
+  end
   
   if car.save
   
