@@ -5,7 +5,6 @@ require 'dm-postgres-adapter'
 require 'do_postgres'
 require 'pony'
 require 'json'
-require 'sqlite3'
 
 DataMapper::setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/development.db")
 
@@ -176,7 +175,7 @@ post '/newcar' do
 
   car.event = "World Maker Faire New York 2012"
   
-  if car.rfid = ""
+  if car.rfid.length < 10
     redirect '/addcar'
   end
   
