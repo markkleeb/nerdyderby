@@ -1,8 +1,10 @@
 <% count = 1 %>
 <% @racings.each do |racing| %>
+<div style="width: 100%;">
 <h1>
 <%= count.to_s() + ". " %>
 </h1>
+<a href="http://192.168.23.2/~itpstudent/images/Cars/<%= "%010d" % racing.car.rfid %>.jpg"><img src="http://192.168.23.2/~itpstudent/images/Cars/<%= "%010d" % racing.car.rfid %>.jpg" style="float: left;" width= "300"></a> 
 <% count = count + 1 %>
 <h2>
 <%= racing.car.carname %>
@@ -13,4 +15,5 @@ by <%= racing.car.name %>
 <br>
 during race: <%= racing.race.id %>
 <br>
+</div>
 <% end %>

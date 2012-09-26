@@ -3,7 +3,7 @@
 <br>
 <% race.racings.all(:order=>[:duration.asc]).each do |racing| %>
 <%= racing.car.carname %></br>
-<a href="/cars/<%= racing.car.rfid %>"><img src = "/<%= racing.car.rfid %>.jpg" width=100></a>
+<a href="/cars/<%= racing.car.rfid %>"><img src="http://192.168.23.2/~itpstudent/images/Cars/<%= "%010d" % racing.car.rfid %>.jpg" style="float: left;" width= "300"></a>
 <br>
 <h4>Time: <%= millisToTime(racing.duration) %>
 <br>
