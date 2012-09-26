@@ -1,9 +1,20 @@
+<div id="cargallery">
+
+	<h2>NERDY DERBY CAR GALLERY</h2>
+	<br />
+	<br />
 
 <% @cars.each do |car| %>
 
-<h2><%= car.carname %></h2>
-<h3>by <%= car.name %></h3>
-<a href="cars/<%= "%010d" % car.rfid %>"><img src="http://192.168.23.2/~itpstudent/images/Cars/<%= "%010d" % car.rfid %>.jpg" width= "300"></a> 
+<div class="car">
+		<div class="cartitle"><%= car.carname %></div>
+		<a href="cars/<%= "%010d" % car.rfid %>"><img src="http://192.168.23.2/~itpstudent/images/Cars/<%= "%010d" % car.rfid %>.jpg" width= "300"></a>  
+		<br>
+		<p>Made by <%= car.name %></p>
+		<br>
+	</div>
+
+
 
 <% end %>
 
