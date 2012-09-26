@@ -173,7 +173,7 @@ post '/newcar' do
   car.carname = params[:carname]
   car.name = params[:name]
 
-  car.event = "World Maker Faire 2012"
+  car.event = "World Maker Faire New York 2012"
   
   
   
@@ -241,10 +241,10 @@ race = Race.new
     actual_car = Car.first(:rfid => car["rfid"])
     
     p actual_car
-    race.racings << Racing.new(:car => actual_car, :duration => car["duration"], :event => "World Maker Faire 2012")
+    race.racings << Racing.new(:car => actual_car, :duration => car["duration"], :event => "World Maker Faire New York 2012")
   end
 
-  race.event = "World Maker Faire 2012"
+  race.event = "World Maker Faire New York 2012"
 
 
 #car1 = Car.first(:rfid => params[:car1id])
