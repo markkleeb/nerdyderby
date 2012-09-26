@@ -16,6 +16,7 @@ class Car
   property :rfid, String
   property :carname, String
   property :name, String
+  property :event, String
 
   has n, :racings
   has n, :races, :through => :racings
@@ -25,6 +26,7 @@ class Race
   include DataMapper::Resource
 
   property :id, Serial, :key => true
+  property :event, String
 
   has n, :racings
   has n, :cars, :through => :racings
@@ -37,6 +39,7 @@ class Racing
 
   property :id, Serial, :key => true
   property :duration, Integer # time duration of a race in whole numbers
+  property :event, String
 
   belongs_to :race, :key => true
   belongs_to :car, :key => true
@@ -169,6 +172,8 @@ post '/newcar' do
   car.rfid = params[:rfid].to_s
   car.carname = params[:carname]
   car.name = params[:name]
+
+  car.event = "World Maker Faire 2012"
   
   
   
@@ -236,8 +241,10 @@ race = Race.new
     actual_car = Car.first(:rfid => car["rfid"])
     
     p actual_car
-    race.racings << Racing.new(:car => actual_car, :duration => car["duration"])
+    race.racings << Racing.new(:car => actual_car, :duration => car["duration"], :event => "World Maker Faire 2012")
   end
+
+  race.event = "World Maker Faire 2012"
 
 
 #car1 = Car.first(:rfid => params[:car1id])
