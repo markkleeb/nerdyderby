@@ -5,6 +5,7 @@ require 'dm-postgres-adapter'
 require 'do_postgres'
 require 'pony'
 require 'json'
+require 'sqlite3'
 
 DataMapper::setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/development.db")
 
@@ -15,7 +16,6 @@ class Car
   property :rfid, String
   property :carname, String
   property :name, String
-  property :event, String
 
   has n, :racings
   has n, :races, :through => :racings
@@ -25,7 +25,6 @@ class Race
   include DataMapper::Resource
 
   property :id, Serial, :key => true
-  property :event, String
 
   has n, :racings
   has n, :cars, :through => :racings
@@ -38,7 +37,6 @@ class Racing
 
   property :id, Serial, :key => true
   property :duration, Integer # time duration of a race in whole numbers
-  property :event, String
 
   belongs_to :race, :key => true
   belongs_to :car, :key => true
@@ -148,8 +146,7 @@ end
 
 get '/erase/:rfid' do
   
-  Car.first(:rfid => params[:rfid])
-  Car.destroy
+  Car.first(:rfid => params[:rfid]).destroy
   redirect '/addcar'
   
   
@@ -172,12 +169,8 @@ post '/newcar' do
   car.rfid = params[:rfid].to_s
   car.carname = params[:carname]
   car.name = params[:name]
-
-  car.event = "World Maker Faire New York 2012"
   
-  if car.rfid.length < 10
-    redirect '/addcar'
-  end
+  
   
   if car.save
   
@@ -243,10 +236,8 @@ race = Race.new
     actual_car = Car.first(:rfid => car["rfid"])
     
     p actual_car
-    race.racings << Racing.new(:car => actual_car, :duration => car["duration"], :event => "World Maker Faire New York 2012")
+    race.racings << Racing.new(:car => actual_car, :duration => car["duration"])
   end
-
-  race.event = "World Maker Faire New York 2012"
 
 
 #car1 = Car.first(:rfid => params[:car1id])

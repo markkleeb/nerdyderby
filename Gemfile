@@ -11,6 +11,3 @@ gem 'do_postgres'
 gem 'dm-postgres-adapter'
 
 gem 'pg', '0.10.0'
-
-gem 'sqlite3'
-
