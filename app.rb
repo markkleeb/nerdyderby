@@ -170,7 +170,9 @@ post '/newcar' do
   car.carname = params[:carname]
   car.name = params[:name]
   
-  
+  if car.rfid.length < 5
+    redirect '/addcar'
+  end
   
   if car.save
   
