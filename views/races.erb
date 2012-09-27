@@ -1,10 +1,7 @@
 <% @races.each do |race| %>
-<h1><a href="/races/<%= race.id %>">Race # <%= race.id %></h1></a>
-<br>
+<h1><a href="/races/<%= race.id %>">Race <%= race.id %></h1></a>
 <% race.racings.all(:order=>[:duration.asc]).each do |racing| %>
-<%= racing.car.carname %></br>
-<a href="/cars/<%= racing.car.rfid %>"><img src="http://192.168.23.2/~itpstudent/images/Cars/<%= "%010d" % racing.car.rfid %>.jpg" style="float: left;" width= "300"></a>
-<br>
+<a href="/cars/<%= racing.car.rfid %>"><%= racing.car.carname %></a>
 <h4>Time: <%= millisToTime(racing.duration) %>
 <br>
 <br>

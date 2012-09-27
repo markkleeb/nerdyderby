@@ -1,11 +1,9 @@
 <h1>Race #<%= @this_race.id %></h1>
-<br>
 <% @racings.each do |racing| %>
-<h2><%= racing.car.carname %></h2>
+<h2><a href="/cars/<%= racing.car.rfid %>"><%= racing.car.carname %></a></h2>
 <br>
 <h4>by: <%= racing.car.name %></h4>
-<br>
-Time: <%= millisToTime(racing.duration) %>
+<p>Time: <%= millisToTime(racing.duration) %></p>
 <br>
 <% end %>
 
